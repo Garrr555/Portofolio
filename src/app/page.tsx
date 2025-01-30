@@ -3,6 +3,7 @@
 import Grid from "@/components/grid/page";
 import Hero from "@/components/hero/page";
 import Navbar from "@/components/navbar/page";
+import RecentProjects from "@/components/recentProject/page";
 import { FaHome } from "react-icons/fa";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <div className="max-w-[120rem] mx-auto mb-20">
           <Grid />
         </div>
+        <RecentProjects />
       </div>
     </main>
   );
