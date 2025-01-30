@@ -55,7 +55,7 @@ export const BentoGridItem = ({
   const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
   function handleCopy() {
-    navigator.clipboard.writeText('contact@jamastery.pro');
+    navigator.clipboard.writeText('mohammadtegaribrahim@gmail.com');
     setCopied(true)
   }
 
@@ -118,7 +118,7 @@ export const BentoGridItem = ({
             {title}
           </div>
           <div className="">
-            {id === 2 && <GlobeDemo />}
+            {/* {id === 2 && <GlobeDemo />} */}
 
             {id === 3 && (
               <div className="w-full flex justify-end items-center gap-1 lg:gap-5  absolute top-0 -right-1">
