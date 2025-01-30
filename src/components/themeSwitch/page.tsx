@@ -1,12 +1,27 @@
-"use client"; // Menandakan bahwa ini adalah komponen klien
+// components/ThemeWrapper.tsx
+"use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { ThemeProvider } from "../../app/provider"; // Sesuaikan path jika diperlukan
 
-export default function ThemeSwitcher() {
+export function ThemeWrapper({ children }: { children: React.ReactNode }) {
+  const [isClient, setIsClient] = useState(false);
+
+  // Menandakan bahwa aplikasi telah dimuat di sisi klien
   useEffect(() => {
-    const theme = localStorage.getItem("theme") || "dark";
-    document.documentElement.classList.add(theme);
+    setIsClient(true);
   }, []);
 
-  return null; // Tidak perlu UI untuk komponen ini
+  if (!isClient) return null; // Render null selama SSR
+
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="dark"
+      enableSystem
+      disableTransitionOnChange
+    >
+      {children}
+    </ThemeProvider>
+  );
 }
